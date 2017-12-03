@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Experiments</title>
+  </head>
+  <body>
+   <h1>Experiments</h1>
+    <form action="/addreport" method="post">
+      <label for="entitieName">Entitie Name: </label>
+      <input type="text" name="entitieName" />
+      <button type="submit">Add Entitie</button>
+    </form>
+    <a href="add_report">add</a>
+   {% for ex in experiments %}
+<!--
+    <p>
+     <a href="report?key={{ex[1]().urlsafe()}}">{{ex[0]}}</a>
+    </p> 
+-->
+   {% endfor %}
+
+   {% for result in results %}
+    <p>
+      <a href="report?key={{result.key.urlsafe()}}">{{loop.index}} - {{result.name}}</a> <span style="margin-left: 20px;"> || </span> <a style="margin-left: 20px;" href="delete_report?key={{result.key.urlsafe()}}">delete entity</a>
+    </p>
+   {% endfor %}
+
+  </body>
+</html>
